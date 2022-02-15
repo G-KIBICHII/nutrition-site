@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<head>
+    <title></title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body {
+        background-repeat: no-repeat;
+        opacity: 1;
+        background-size: cover;
+        
+   
+        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcStJd8jdusf0-Td4Ifi58RuCJu1JoZ5AvFLscWPsoTQXpbfxFiV");
+       
+    }
+  
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#" style="color: #04143d;font-family: ubuntu;">CHIEF`S HEALTHY  STORE !</a>
+       
+      
+      
+      </nav>
+    <div class="wrapper" style="margin-top:250px;margin-left:280px;">
+        <h3 style="color: white;margin-left:20px;font-family: ubuntu;">SIGN IN !</h3><br>
+        <form name="myform" method="post" action="{% url 'main' %}">
+        {% csrf_token %} 
+        
+        <input type="text" style="border-radius: 25px;border: 2px solid #fff;padding: 20px; width: 200px;height: 15px" name="user" placeholder="Username!" required>
+        <br><br>
+        <input type="password" style="border-radius: 25px;border: 2px solid #fff;padding: 20px; width: 200px;height: 15px" name="passer" placeholder="Password!" required>
+        <br><br>
+        <button class="btn btn-primary " style="margin-left:10px;" type="submit">login</button> 
+        </form>
+        <br><br>
+        <h1 style="font-family:ubuntu;">{{ test }}</h1>
+        {% if test %}
+        <script>alert("username or password incorrect")</script>
+        {% endif %}
+    </div>
+</body>
+
+</html>

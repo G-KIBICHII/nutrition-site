@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<head>
+    <title></title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style>
+body{
+    background-color: #cce6ff;
+}
+.top{
+    margin-top:{{ top }}px;
+    margin-left:{{ left }}px;
+}
+.block{
+    margin-top:300px;
+    
+}
+.tet{
+    font-family:ubuntu;
+    text-align:left;
+    padding:10px;
+    
+}
+.ttt{
+    color:royalblue;
+    padding:5px;
+
+}
+.trt{
+    color:red; padding:5px;
+}
+.tst{
+    color:green; padding:5px;
+}
+.txt{
+    color:#475694; padding:5px;
+}
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#" style="color: #04143d;font-family: ubuntu;"><span style="color:red;">ShAzAm</span>_<span style="color:royalblue;">Of</span>_<span style="color:green;">f0oD!</span></a>
+  <form method="post" action="{% url 'logout' %}">
+       {% csrf_token %} 
+      
+    <button class="btn btn-danger" style="margin-left:1310px;">logout</button>
+   </form> </nav>
+   <div class="top">
+    <form action="{% url 'change' %}" method="post">
+         {% csrf_token %} 
+        <input type="text"  style="border-radius: 25px;border: 2px solid #fff;padding: 20px; width: 600px;height: 15px" name="search" placeholder={{ nn }} required>
+        <button class="btn btn-primary">SeArCH!</button>
+    
+      </form>
+      
+     {% if values %}
+     <div class="block">
+     <table style="width:100%;margin-top:-200px;margin-left:5px;">
+     <tr>
+     <th class="trt">NAME</th>   
+     <th class="tst">CALORIES</th> 
+     <th class="ttt">PROTEIN</th> 
+     <th class="txt">FAT</th> 
+     <th class="tst">SODIUM</th> 
+     <th class="txt">FIBRE</th> 
+     <th class="trt">CARBS</th>
+      <th class="ttt">SUGAR</th>
+      <th class="txt">POTTASIUM</th>
+      <th class="tst">VITAMINS</th>
+      <th class="ttt">RATING</th>
+        
+
+     </tr>
+    {% for i in values %}
+    <tr>
+    {% for j in i %}
+    <th class="tet">{{ j }}</th>
+    {% endfor %}
+    </tr>
+    
+    {% endfor %}
+    </div>
+    {% else %}
+    <h1 style="font-family:ubuntu;margin-top:40px;margin-left:10px;">{{ ww }}</p> 
+    {% endif %} 
+    
+    
+   
+
+</body>
+</html>
